@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="ChangePasswordPageTest(failed)">
+    <classes>
+      <class name="tests.ChangePasswordPageTest">
+        <methods>
+          <include name="changeUserPassword"/>
+          <include name="tearDown"/>
+          <include name="clickOnchangePassword"/>
+        </methods>
+      </class> <!-- tests.ChangePasswordPageTest -->
+    </classes>
+  </test> <!-- ChangePasswordPageTest(failed) -->
+  <test thread-count="5" name="HomePageTest(failed)">
+    <classes>
+      <class name="tests.HomePageTest">
+        <methods>
+          <include name="logoutFromApplication"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- tests.HomePageTest -->
+    </classes>
+  </test> <!-- HomePageTest(failed) -->
+</suite> <!-- Failed suite [Suite] -->
