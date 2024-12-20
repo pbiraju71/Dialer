@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import commonMethod.AbstractMethod;
 
-public class HomePage extends AbstractMethod{
+public class HomePage extends AbstractMethod {
 
 	WebDriver driver;
 
@@ -29,23 +29,36 @@ public class HomePage extends AbstractMethod{
 	@FindBy(xpath = "//span[normalize-space()='LogOut']")
 	private WebElement LogOutButton;
 
-	public void clickOnPersonExpandMenu() {
+	@FindBy(css = ".spinner-container")
+	private WebElement spinner;
+
+	public WebElement getSpinner() {
+		return spinner;
+	}
+
+	public void waitForSpinnertoInvisible() {
+		WaitForElementToInvisible(getSpinner());
+	}
+
+	public void clickOnPersonExpandMenu() throws InterruptedException {
 		clickOnButton(personExpandMenu);
 	}
 
-	public ChangePasswordPage clickOnchangePassword() {
+	public ChangePasswordPage clickOnchangePassword() throws InterruptedException {
+		waitForSpinnertoInvisible();
+		//Thread.sleep(5000);
 		clickOnPersonExpandMenu();
 		clickOnButton(changePassword);
 		ChangePasswordPage changepasswordpage = new ChangePasswordPage(driver);
 		return changepasswordpage;
 	}
 
-	public void OpenProfilePage() {
+	public void OpenProfilePage() throws InterruptedException {
 		clickOnPersonExpandMenu();
 		clickOnButton(profile);
 	}
 
-	public void logoutFromApplication() {
+	public void logoutFromApplication() throws InterruptedException {
 		clickOnPersonExpandMenu();
 		clickOnButton(LogOutButton);
 	}

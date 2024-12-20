@@ -7,8 +7,8 @@ import org.openqa.selenium.support.PageFactory;
 
 import commonMethod.AbstractMethod;
 
-public class LoginPage extends AbstractMethod{
-	
+public class LoginPage extends AbstractMethod {
+
 	WebDriver driver;
 
 	public LoginPage(WebDriver driver) {
@@ -42,7 +42,7 @@ public class LoginPage extends AbstractMethod{
 		return userDomain.getText();
 	}
 
-	public HomePage loginIntoApplication(String uname, String upassword, String udomain) {
+	public HomePage loginIntoApplication(String uname, String upassword, String udomain) throws InterruptedException {
 		sendValueIntoTextBox(userName, uname);
 		sendValueIntoTextBox(userPassword, upassword);
 		sendValueIntoTextBox(userDomain, udomain);

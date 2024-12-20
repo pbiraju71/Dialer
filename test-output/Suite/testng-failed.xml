@@ -5,21 +5,10 @@
     <classes>
       <class name="tests.ChangePasswordPageTest">
         <methods>
-          <include name="changeUserPassword"/>
           <include name="tearDown"/>
           <include name="clickOnchangePassword"/>
         </methods>
       </class> <!-- tests.ChangePasswordPageTest -->
     </classes>
   </test> <!-- ChangePasswordPageTest(failed) -->
-  <test thread-count="5" name="HomePageTest(failed)">
-    <classes>
-      <class name="tests.HomePageTest">
-        <methods>
-          <include name="logoutFromApplication"/>
-          <include name="tearDown"/>
-        </methods>
-      </class> <!-- tests.HomePageTest -->
-    </classes>
-  </test> <!-- HomePageTest(failed) -->
 </suite> <!-- Failed suite [Suite] -->

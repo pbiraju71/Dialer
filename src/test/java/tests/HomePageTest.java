@@ -10,7 +10,7 @@ import pageObjects.LoginPage;
 
 public class HomePageTest  extends BaseTest{
 
-	WebDriver driver;
+	public WebDriver driver;
 	LoginPage loginpage;
 	HomePage homepage;
 
