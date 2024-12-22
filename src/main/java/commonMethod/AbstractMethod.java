@@ -4,6 +4,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.time.Duration;
+import java.util.List;
 import java.util.Scanner;
 
 import org.apache.poi.xssf.usermodel.XSSFCell;
@@ -11,6 +12,7 @@ import org.apache.poi.xssf.usermodel.XSSFName;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -19,7 +21,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class AbstractMethod {
 
-	WebDriver driver;
+	public WebDriver driver;
 	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 	Actions act;
 
@@ -50,7 +52,7 @@ public class AbstractMethod {
 
 	public void clickOnButton(WebElement ele) throws InterruptedException {
 		WaitForElementTobeClickable(ele);
-		Thread.sleep(5000);
+		// Thread.sleep(5000);
 		ele.click();
 	}
 
@@ -60,6 +62,20 @@ public class AbstractMethod {
 		WaitForElementTobeClickable(ele);
 		act = new Actions(driver);
 		act.sendKeys(ele, text).build().perform();
+	}
+
+	public void handleDynamicDDL(WebDriver driver, String commonXpath,String CampaignType) throws InterruptedException {
+		List<WebElement> ddlOptions = driver.findElements(By.xpath(commonXpath));
+		for (WebElement value : ddlOptions) {
+			System.out.println(value.getText());
+			if (value.getText().equalsIgnoreCase(CampaignType)) {
+				Thread.sleep(3000);
+				WaitForElementTobeClickable(value);
+				Thread.sleep(3000);
+				clickOnButton(value);
+				break;
+			}
+		}
 	}
 
 	public void getDataFromExcel() throws IOException {
@@ -139,7 +155,7 @@ public class AbstractMethod {
 				cell.setCellValue(sc.next());
 			}
 		}
-		
+
 		workbook.write(fos);
 		workbook.close();
 		fos.close();

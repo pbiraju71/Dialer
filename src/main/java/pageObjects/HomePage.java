@@ -17,6 +17,9 @@ public class HomePage extends AbstractMethod {
 		PageFactory.initElements(driver, this);
 	}
 
+	@FindBy(xpath = "//div[contains(@class,'d-flex flex-row align-items-center')]/span")
+	private WebElement usernametext;
+
 	@FindBy(xpath = "//mat-icon[text()='person']")
 	private WebElement personExpandMenu;
 
@@ -32,6 +35,15 @@ public class HomePage extends AbstractMethod {
 	@FindBy(css = ".spinner-container")
 	private WebElement spinner;
 
+	@FindBy(xpath = "//span[text()='Campaign']")
+	private WebElement campaign_Menu;
+
+	public CampaignPage clickonCampaignMenu() throws InterruptedException {
+		clickOnButton(campaign_Menu);
+		CampaignPage campaignPage = new CampaignPage(driver);
+		return campaignPage;
+	}
+
 	public WebElement getSpinner() {
 		return spinner;
 	}
@@ -44,9 +56,13 @@ public class HomePage extends AbstractMethod {
 		clickOnButton(personExpandMenu);
 	}
 
+	public WebElement getuserNameText() {
+		return usernametext;
+	}
+
 	public ChangePasswordPage clickOnchangePassword() throws InterruptedException {
 		waitForSpinnertoInvisible();
-		//Thread.sleep(5000);
+		// Thread.sleep(5000);
 		clickOnPersonExpandMenu();
 		clickOnButton(changePassword);
 		ChangePasswordPage changepasswordpage = new ChangePasswordPage(driver);

@@ -10,6 +10,7 @@ import commonMethod.AbstractMethod;
 public class LoginPage extends AbstractMethod {
 
 	WebDriver driver;
+	HomePage homePage;
 
 	public LoginPage(WebDriver driver) {
 		super(driver);
@@ -47,7 +48,7 @@ public class LoginPage extends AbstractMethod {
 		sendValueIntoTextBox(userPassword, upassword);
 		sendValueIntoTextBox(userDomain, udomain);
 		clickOnButton(loginButton);
-		HomePage homePage = new HomePage(driver);
+		homePage = new HomePage(driver);
 		return homePage;
 	}
 
