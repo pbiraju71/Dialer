@@ -1,23 +1,36 @@
 package commonMethod;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.time.Duration;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
+import java.util.logging.FileHandler;
 
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellType;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.util.NumberToTextConverter;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFName;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 
 public class AbstractMethod {
 
@@ -64,7 +77,8 @@ public class AbstractMethod {
 		act.sendKeys(ele, text).build().perform();
 	}
 
-	public void handleDynamicDDL(WebDriver driver, String commonXpath,String CampaignType) throws InterruptedException {
+	public void handleDynamicDDL(WebDriver driver, String commonXpath, String CampaignType)
+			throws InterruptedException {
 		List<WebElement> ddlOptions = driver.findElements(By.xpath(commonXpath));
 		for (WebElement value : ddlOptions) {
 			System.out.println(value.getText());
@@ -76,28 +90,6 @@ public class AbstractMethod {
 				break;
 			}
 		}
-	}
-
-	public void getDataFromExcel() throws IOException {
-		FileInputStream fis = new FileInputStream("D:\\Automation\\Data\\ExcelDataDriven.xlsx");
-		XSSFWorkbook workbook = new XSSFWorkbook(fis);
-		int sheets = workbook.getNumberOfSheets();
-		XSSFSheet sheet = workbook.getSheet("Sheet1");
-		int totalRows = sheet.getLastRowNum();
-		short totalCells = sheet.getRow(0).getLastCellNum();
-		System.out.println(totalRows);
-		System.out.println(totalCells);
-		for (int r = 0; r < totalRows; r++) {
-			XSSFRow currentRow = sheet.getRow(r);
-			for (int c = 0; c < totalCells; c++) {
-				XSSFCell cell = currentRow.getCell(c);
-				System.out.print(cell.toString() + "\t");
-			}
-			System.out.println();
-		}
-		workbook.close();
-		fis.close();
-
 	}
 
 	public void writeinExcelFile() throws IOException {
@@ -160,5 +152,18 @@ public class AbstractMethod {
 		workbook.close();
 		fos.close();
 		System.out.println("Dynamic Excel Sheet Created with Test Data");
+	}
+
+	
+
+	public static ExtentReports extentReportObject() {
+		String path = System.getProperty("user.dir") + "\\reports\\index.html";
+		ExtentSparkReporter reporter = new ExtentSparkReporter(path);
+		reporter.config().setReportName("Web Automation Report");
+		reporter.config().setDocumentTitle("Test Results");
+		ExtentReports extent = new ExtentReports();
+		extent.attachReporter(reporter);
+		extent.setSystemInfo("Tester", "Biraju Patel");
+		return extent;
 	}
 }

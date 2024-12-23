@@ -47,7 +47,8 @@ public class CampaignPage extends AbstractMethod {
 		clickOnButton(add_Campaignbtn);
 	}
 
-	public void createCampaign(String CampaignType, String campaignName, String campaignoption) throws InterruptedException {
+	public void createCampaign(String campaignName, String CampaignType, String campaignoption)
+			throws InterruptedException {
 		sendValueIntoTextBox(campaign_name, campaignName);
 		clickOnButton(campaign_type);
 		handleDynamicDDL(driver, commonXpath, campaignoption);

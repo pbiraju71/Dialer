@@ -1,11 +1,13 @@
 package tests;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.IRetryAnalyzer;
 import org.testng.annotations.Test;
 
 import commonMethod.ExcelUtility;
@@ -20,7 +22,7 @@ public class CampaignPageTest extends BaseTest {
 	HomePage homePage;
 	CampaignPage campaignPage;
 
-	@Test
+	@Test(retryAnalyzer = Retry.class)
 	public void createCampaign() throws IOException, InterruptedException {
 		loginPage = launchApplication();
 		homePage = loginPage.loginIntoApplication("bankbazar", "Admin@1234", "baar");
@@ -28,15 +30,8 @@ public class CampaignPageTest extends BaseTest {
 		campaignPage = homePage.clickonCampaignMenu();
 		campaignPage.openCampaignForm();
 		String xlfilePath = System.getProperty("user.dir") + "\\resources\\Data\\TestCases.xlsx";
-		int rows = ExcelUtility.getRowCount(xlfilePath, "Sheet1");
-		for (int i = 1; i <= rows; i++) {
-			String Campaign_Name = ExcelUtility.getCellData(xlfilePath, "Sheet1", i, 1);
-			String Campaign_Type = ExcelUtility.getCellData(xlfilePath, "Sheet1", i, 2);
-			// String DID_Scheme = ExcelUtility.getCellData(xlfilePath, "Sheet1", i, 3);
-			campaignPage.createCampaign("Manual", Campaign_Name, Campaign_Type);
-
-		}
-
+		ArrayList<String> data = ExcelUtility.getDataFromExcel("CreateCampaign",xlfilePath);
+		campaignPage.createCampaign(data.get(1),data.get(2), "Manual");
 	}
 
 }

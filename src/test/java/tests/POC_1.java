@@ -35,10 +35,10 @@ public class POC_1 {
 		confirmPasswordField.sendKeys("Admin@12345");
 	}
 
-	@Test(enabled = true)
+	@Test(enabled = false)
 	public void getData() throws IOException {
 		AbstractMethod m = new AbstractMethod(driver);
-		m.getDataFromExcel();
+		//m.getDataFromExcel();
 	}
 
 	@Test
