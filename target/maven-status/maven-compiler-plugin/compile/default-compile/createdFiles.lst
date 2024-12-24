@@ -1,0 +1,6 @@
+pageObjects\ChangePasswordPage.class
+commonMethod\ExcelUtility.class
+commonMethod\AbstractMethod.class
+pageObjects\LoginPage.class
+pageObjects\CampaignPage.class
+pageObjects\HomePage.class

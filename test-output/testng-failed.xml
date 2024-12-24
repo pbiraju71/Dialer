@@ -19,8 +19,8 @@
     <classes>
       <class name="tests.ChangePasswordPageTest">
         <methods>
-          <include name="tearDown"/>
           <include name="clickOnchangePassword"/>
+          <include name="tearDown"/>
         </methods>
       </class> <!-- tests.ChangePasswordPageTest -->
     </classes>

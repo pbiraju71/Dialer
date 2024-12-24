@@ -1,0 +1,8 @@
+tests\LoginPageTest.class
+tests\HomePageTest.class
+tests\Retry.class
+tests\CampaignPageTest.class
+tests\BaseTest.class
+tests\POC_1.class
+tests\Listenners.class
+tests\ChangePasswordPageTest.class

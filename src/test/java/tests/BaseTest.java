@@ -3,6 +3,8 @@ package tests;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Properties;
 
 import org.apache.commons.io.FileUtils;
@@ -67,12 +69,30 @@ public class BaseTest {
 		driver.quit();
 	}
 	
-	public  String captureScreenshot(String testCaseName,WebDriver driver) throws IOException {
-		TakesScreenshot ts = (TakesScreenshot)driver;
-		File source = ts.getScreenshotAs(OutputType.FILE);
-		File file = new File(System.getProperty("user.dir")+"//reports//" + testCaseName + ".png");
-		FileUtils.copyFile(source, file);
-		return System.getProperty("user.dir")+"//reports//" + testCaseName + ".png";
+	public String captureScreenshot(String testCaseName, WebDriver driver) throws IOException {
+	    if (driver == null) {
+	        throw new IllegalArgumentException("WebDriver instance is null");
+	    }
+
+	    // Take a screenshot
+	    TakesScreenshot ts = (TakesScreenshot) driver;
+	    File source = ts.getScreenshotAs(OutputType.FILE);
+
+	    // Ensure the reports directory exists
+	    File reportsDir = new File(System.getProperty("user.dir") + File.separator + "reports");
+	    if (!reportsDir.exists()) {
+	        reportsDir.mkdirs();
+	    }
+
+	    // Generate a unique file name
+	    String timestamp = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
+	    String filePath = System.getProperty("user.dir") + File.separator + "reports" + File.separator + testCaseName + "_" + timestamp + ".png";
+
+	    // Save the screenshot
+	    File destination = new File(filePath);
+	    FileUtils.copyFile(source, destination);
+
+	    return filePath;
 	}
 
 }

@@ -2,16 +2,16 @@
 <testng-results ignored="0" total="3" passed="0" failed="3" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-12-23T23:42:55 IST" name="Suite" finished-at="2024-12-23T23:44:42 IST" duration-ms="106523">
+  <suite started-at="2024-12-25T01:20:40 IST" name="Suite" finished-at="2024-12-25T01:22:44 IST" duration-ms="124143">
     <groups>
     </groups>
-    <test started-at="2024-12-23T23:42:55 IST" name="LoginPageTest" finished-at="2024-12-23T23:44:12 IST" duration-ms="77086">
+    <test started-at="2024-12-25T01:20:40 IST" name="LoginPageTest" finished-at="2024-12-25T01:22:16 IST" duration-ms="95371">
       <class name="tests.LoginPageTest">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.LoginPageTest@7486b455]" started-at="2024-12-23T23:42:55 IST" name="setUp" finished-at="2024-12-23T23:42:55 IST" duration-ms="71" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.LoginPageTest@3e0e1046]" started-at="2024-12-25T01:20:40 IST" name="setUp" finished-at="2024-12-25T01:20:40 IST" duration-ms="54" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="verifyLoginFunctionalityforAllRoles()[pri:0, instance:tests.LoginPageTest@7486b455]" started-at="2024-12-23T23:42:55 IST" name="verifyLoginFunctionalityforAllRoles" finished-at="2024-12-23T23:44:12 IST" duration-ms="76945" status="FAIL">
+        <test-method signature="verifyLoginFunctionalityforAllRoles()[pri:0, instance:tests.LoginPageTest@3e0e1046]" started-at="2024-12-25T01:20:40 IST" name="verifyLoginFunctionalityforAllRoles" finished-at="2024-12-25T01:22:16 IST" duration-ms="95247" status="FAIL">
           <exception class="org.openqa.selenium.NoSuchElementException">
             <message>
               <![CDATA[no such element: Unable to locate element: {"method":"xpath","selector":"//div[contains(@class,'d-flex flex-row align-items-center')]/span"}
@@ -20,9 +20,9 @@ For documentation on this error, please visit: https://www.selenium.dev/document
 Build info: version: '4.27.0', revision: 'd6e718d134'
 System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.5'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [a5c84de9e5160a13d86b5472b3c1d603, findElement {value=//div[contains(@class,'d-flex flex-row align-items-center')]/span, using=xpath}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 131.0.6778.205, chrome: {chromedriverVersion: 131.0.6778.204 (52183f9e99a..., userDataDir: C:\Users\biraj\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:60685}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:60685/devtoo..., se:cdpVersion: 131.0.6778.205, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: a5c84de9e5160a13d86b5472b3c1d603]]>
+Command: [de1820368e8894ecef5aada6b735fe6a, findElement {value=//div[contains(@class,'d-flex flex-row align-items-center')]/span, using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 131.0.6778.205, chrome: {chromedriverVersion: 131.0.6778.204 (52183f9e99a..., userDataDir: C:\Users\biraj\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51678}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51678/devtoo..., se:cdpVersion: 131.0.6778.205, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: de1820368e8894ecef5aada6b735fe6a]]>
             </message>
             <full-stacktrace>
               <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//div[contains(@class,'d-flex flex-row align-items-center')]/span"}
@@ -31,9 +31,9 @@ For documentation on this error, please visit: https://www.selenium.dev/document
 Build info: version: '4.27.0', revision: 'd6e718d134'
 System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.5'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [a5c84de9e5160a13d86b5472b3c1d603, findElement {value=//div[contains(@class,'d-flex flex-row align-items-center')]/span, using=xpath}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 131.0.6778.205, chrome: {chromedriverVersion: 131.0.6778.204 (52183f9e99a..., userDataDir: C:\Users\biraj\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:60685}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:60685/devtoo..., se:cdpVersion: 131.0.6778.205, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: a5c84de9e5160a13d86b5472b3c1d603
+Command: [de1820368e8894ecef5aada6b735fe6a, findElement {value=//div[contains(@class,'d-flex flex-row align-items-center')]/span, using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 131.0.6778.205, chrome: {chromedriverVersion: 131.0.6778.204 (52183f9e99a..., userDataDir: C:\Users\biraj\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51678}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51678/devtoo..., se:cdpVersion: 131.0.6778.205, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: de1820368e8894ecef5aada6b735fe6a
 at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
 at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
 at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
@@ -86,9 +86,9 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
         </test-method> <!-- verifyLoginFunctionalityforAllRoles -->
       </class> <!-- tests.LoginPageTest -->
     </test> <!-- LoginPageTest -->
-    <test started-at="2024-12-23T23:44:13 IST" name="ChangePasswordPageTest" finished-at="2024-12-23T23:44:28 IST" duration-ms="14680">
+    <test started-at="2024-12-25T01:22:16 IST" name="ChangePasswordPageTest" finished-at="2024-12-25T01:22:30 IST" duration-ms="14494">
       <class name="tests.ChangePasswordPageTest">
-        <test-method signature="clickOnchangePassword()[pri:0, instance:tests.ChangePasswordPageTest@13df2a8c]" started-at="2024-12-23T23:44:13 IST" name="clickOnchangePassword" finished-at="2024-12-23T23:44:28 IST" duration-ms="14670" status="FAIL">
+        <test-method signature="clickOnchangePassword()[pri:0, instance:tests.ChangePasswordPageTest@35b74c5c]" started-at="2024-12-25T01:22:16 IST" name="clickOnchangePassword" finished-at="2024-12-25T01:22:30 IST" duration-ms="14488" status="FAIL">
           <exception class="org.openqa.selenium.TimeoutException">
             <message>
               <![CDATA[Expected condition failed: waiting for element to be clickable: Proxy element for: DefaultElementLocator 'By.xpath: //span[text()='Change Password ']' (tried for 10 second(s) with 500 milliseconds interval)]]>
@@ -133,9 +133,9 @@ For documentation on this error, please visit: https://www.selenium.dev/document
 Build info: version: '4.27.0', revision: 'd6e718d134'
 System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.5'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [62a01451a008e52010ff16d1257307ed, findElement {value=//span[text()='Change Password '], using=xpath}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 131.0.6778.205, chrome: {chromedriverVersion: 131.0.6778.204 (52183f9e99a..., userDataDir: C:\Users\biraj\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:60750}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:60750/devtoo..., se:cdpVersion: 131.0.6778.205, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 62a01451a008e52010ff16d1257307ed
+Command: [6300b6905573b1c6e661ce7b4729a16f, findElement {value=//span[text()='Change Password '], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 131.0.6778.205, chrome: {chromedriverVersion: 131.0.6778.204 (52183f9e99a..., userDataDir: C:\Users\biraj\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51733}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51733/devtoo..., se:cdpVersion: 131.0.6778.205, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 6300b6905573b1c6e661ce7b4729a16f
 at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
 at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
 at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
@@ -168,9 +168,9 @@ at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:203)
         </test-method> <!-- clickOnchangePassword -->
       </class> <!-- tests.ChangePasswordPageTest -->
     </test> <!-- ChangePasswordPageTest -->
-    <test started-at="2024-12-23T23:44:28 IST" name="HomePageTest" finished-at="2024-12-23T23:44:42 IST" duration-ms="13930">
+    <test started-at="2024-12-25T01:22:30 IST" name="HomePageTest" finished-at="2024-12-25T01:22:44 IST" duration-ms="13877">
       <class name="tests.HomePageTest">
-        <test-method signature="logoutFromApplication()[pri:0, instance:tests.HomePageTest@7de62196]" started-at="2024-12-23T23:44:28 IST" name="logoutFromApplication" finished-at="2024-12-23T23:44:42 IST" duration-ms="13927" status="FAIL">
+        <test-method signature="logoutFromApplication()[pri:0, instance:tests.HomePageTest@747f281]" started-at="2024-12-25T01:22:30 IST" name="logoutFromApplication" finished-at="2024-12-25T01:22:44 IST" duration-ms="13870" status="FAIL">
           <exception class="org.openqa.selenium.TimeoutException">
             <message>
               <![CDATA[Expected condition failed: waiting for element to be clickable: Proxy element for: DefaultElementLocator 'By.xpath: //span[normalize-space()='LogOut']' (tried for 10 second(s) with 500 milliseconds interval)]]>
@@ -215,9 +215,9 @@ For documentation on this error, please visit: https://www.selenium.dev/document
 Build info: version: '4.27.0', revision: 'd6e718d134'
 System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.5'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [cd45f2233bb820d45d7bef2134c90124, findElement {value=//span[normalize-space()='LogOut'], using=xpath}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 131.0.6778.205, chrome: {chromedriverVersion: 131.0.6778.204 (52183f9e99a..., userDataDir: C:\Users\biraj\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:60776}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:60776/devtoo..., se:cdpVersion: 131.0.6778.205, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: cd45f2233bb820d45d7bef2134c90124
+Command: [2d5658e4767db5871ee7894d7a58fc8c, findElement {value=//span[normalize-space()='LogOut'], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 131.0.6778.205, chrome: {chromedriverVersion: 131.0.6778.204 (52183f9e99a..., userDataDir: C:\Users\biraj\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51755}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51755/devtoo..., se:cdpVersion: 131.0.6778.205, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 2d5658e4767db5871ee7894d7a58fc8c
 at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
 at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
 at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)

@@ -15,66 +15,68 @@ import commonMethod.AbstractMethod;
 
 public class Listenners extends BaseTest implements ITestListener {
 
-	ExtentReports extent = AbstractMethod.extentReportObject();
-	ExtentTest test;
-	ThreadLocal<ExtentTest> extentTest = new ThreadLocal<ExtentTest>();
+    ExtentReports extent = AbstractMethod.extentReportObject();
+    ThreadLocal<ExtentTest> extentTest = new ThreadLocal<>();
 
-	@Override
-	public void onTestStart(ITestResult result) {
-		test = extent.createTest(result.getMethod().getMethodName());
-		extentTest.set(test);
-	}
+    @Override
+    public void onTestStart(ITestResult result) {
+        ExtentTest test = extent.createTest(result.getMethod().getMethodName());
+        extentTest.set(test);
+    }
 
-	@Override
-	public void onTestSuccess(ITestResult result) {
-		extentTest.get().log(Status.PASS, "Test Passed");
-	}
+    @Override
+    public void onTestSuccess(ITestResult result) {
+        extentTest.get().log(Status.PASS, "Test Passed");
+    }
 
-	@Override
-	public void onTestFailure(ITestResult result) {
-		test.log(Status.FAIL, "Test Failed");
-		extentTest.get().fail(result.getThrowable());
-		try {
-			driver=(WebDriver) result.getTestClass().getRealClass().getField("driver")
-					.get(result.getInstance());
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		
-		//screenshot
-		String filePath = null;
-		try {
-			filePath = captureScreenshot(result.getMethod().getMethodName(),driver);
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		extentTest.get().addScreenCaptureFromPath(filePath, result.getMethod().getMethodName());
-	}}
+    @Override
+    public void onTestFailure(ITestResult result) {
+        extentTest.get().log(Status.FAIL, "Test Failed");
+        extentTest.get().fail(result.getThrowable());
 
-	@Override
-	public void onTestSkipped(ITestResult result) {
-		extentTest.get().log(Status.SKIP, "Test Skipped");
-	}
+        WebDriver driver = null;
+        try {
+            driver = (WebDriver) result.getTestClass().getRealClass().getField("driver").get(result.getInstance());
+        } catch (Exception e) {
+            extentTest.get().fail("Failed to retrieve WebDriver instance: " + e.getMessage());
+        }
 
-	@Override
-	public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
-		
-	}
+        if (driver != null) {
+            try {
+                String filePath = captureScreenshot(result.getMethod().getMethodName(), driver);
+                if (filePath != null) {
+                    extentTest.get().addScreenCaptureFromPath(filePath, result.getMethod().getMethodName());
+                }
+            } catch (IOException e) {
+                extentTest.get().fail("Failed to capture screenshot: " + e.getMessage());
+            }
+        } else {
+            extentTest.get().log(Status.WARNING, "Driver is null, screenshot could not be captured");
+        }
+    }
 
-	@Override
-	public void onTestFailedWithTimeout(ITestResult result) {
-		
-	}
+    @Override
+    public void onTestSkipped(ITestResult result) {
+        extentTest.get().log(Status.SKIP, "Test Skipped");
+    }
 
-	@Override
-	public void onStart(ITestContext context) {
-		
-	}
+    @Override
+    public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
+        // Implement if needed
+    }
 
-	@Override
-	public void onFinish(ITestContext context) {
-		extent.flush();
-	}
+    @Override
+    public void onTestFailedWithTimeout(ITestResult result) {
+        onTestFailure(result); // Treat timeout as failure
+    }
 
+    @Override
+    public void onStart(ITestContext context) {
+        // Optional: Code to execute before any tests run
+    }
+
+    @Override
+    public void onFinish(ITestContext context) {
+        extent.flush();
+    }
 }
